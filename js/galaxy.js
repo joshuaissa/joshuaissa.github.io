@@ -143,8 +143,8 @@
     ctx.restore();
     const items = [{ c: col.ink, l: "Massive stars" }];
     if (+ui.f.value > 0) items.push({ c: col.c2, l: "+ shell mergers" });
-    items.push({ sq: true, l: "Sun" }, { dot: true, c: col.ink, l: "Gas when your planet forms" });
-    items.push({ dot: true, c: col.r4, l: "Stars, STELLAB compilation" }, { dot: true, c: col.star, l: "Stars, APOGEE DR13 (" + D.stars.apogee.length + " of " + D.stars.apogee_total + ")" });
+    items.push({ sq: true, l: "Sun" }, { dot: true, c: col.ink, l: "Your planet" });
+    items.push({ dot: true, c: col.r4, l: "STELLAB stars" }, { dot: true, c: col.star, l: "APOGEE stars" });
     legend("gceLegend", items);
   }
 

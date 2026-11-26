@@ -229,6 +229,7 @@
     // over the whole run: the one reaction that makes 40K, and the share of the 40K destroyed by each reaction
     if (finalVals) {
       const d = R.filter((r) => r.from === "k40").map((r) => [r, finalVals.shares[r.id] || 0]).sort((a, b) => b[1] - a[1]);
+      $("domReac").innerHTML = supHtml(d[0][0].label);   // the explanation names the top destroyer of this run
       $("rReac").innerHTML = "Made by " + supHtml(R[1].label) + ". Destroyed by " +
         d.filter(([, s]) => s >= 0.01).map(([r, s]) => supHtml(r.label) + " (" + Math.round(100 * s) + "%)").join(", ") + ".";
     } else $("rReac").textContent = "–";
