@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joshua Issa · Nuclear Astrophysics</title>
+  <meta name="description" content="Joshua Issa, PhD student in astronomy at the University of Victoria. 3D hydrodynamics of massive stars, convective-reactive nucleosynthesis in oxygen-carbon shell mergers, supernova remnants and the origin of 40K.">
+  <meta property="og:title" content="Joshua Issa · Nuclear Astrophysics">
+  <meta property="og:description" content="3D hydrodynamics of massive stars and the origin of the elements.">
+  <meta property="og:image" content="media/hero-vorticity.jpg">
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/favicon-180.png">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="./">Joshua Issa</a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="research/">Research</a></li>
+        <li><a href="publications/">Publications</a></li>
+        <li><a href="talks/">Talks</a></li>
+        <li><a href="simulator/">Simulator</a></li>
+        <li><a href="cv/">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Joshua Issa</h1>
+        <p class="role">PhD student in Astronomy @ UVic</p>
+        <p>I study how convection deep inside massive stars shapes nucleosynthesis. My work combines 3D hydrodynamic simulations, nuclear reaction networks, and observations of supernova remnants. I have a particular love for the dynamic nucleosynthesis site oxygen-carbon shell mergers.</p>
+        <p>I work with <a href="https://web.uvic.ca/~fherwig/" target="_blank" rel="noopener">Falk Herwig</a> and I am a member of the <a href="https://nugrid.github.io/" target="_blank" rel="noopener">NuGrid collaboration</a>.</p>
+        <ul class="links">
+          <li><a href="mailto:joshuaissa@uvic.ca">Email</a></li>
+          <li><a href="https://scixplorer.org/search?q=orcid%3A0000-0002-1283-6636&amp;sort=date%20desc" target="_blank" rel="noopener">SciXplorer</a></li>
+          <li><a href="https://orcid.org/0000-0002-1283-6636" target="_blank" rel="noopener">ORCID</a></li>
+          <li><a href="https://github.com/Morhc" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="cv/">CV</a></li>
+        </ul>
+      </div>
+      <figure>
+        <video class="js-auto" src="media/hero-vorticity.mp4" poster="media/hero-vorticity.jpg" muted loop playsinline preload="metadata" aria-label="Turbulent convection in a slice through a 3D simulation of two burning shells in a massive star"></video>
+        <figcaption>Vorticity slice of a 768³ 3D PPMstar simulation of a massive star's oxygen and carbon shells one year before collapse.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker">Research</div>
+      <h2>What I work on</h2>
+      <p class="lede">1D stellar evolution calculations model convection as a diffusion process according to mixing length theory. 3D simulations significantly diverge both in the shape and magnitude of mixing. My research shows how abundance patterns are imprinted by mixing physics and asks how observations can constrain our understanding of mixing.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="media"><img src="media/o42-vorticity.jpg" alt="Slice through a 3D simulation showing turbulent convection in two concentric shells" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">3D hydrodynamics</span>
+            <h3>Nuclear burning in 3D</h3>
+            <p>I implemented nuclear burning in the 3D hydrodynamic code PPMstar to see how hydro responds to nuclear physics.</p>
+            <a class="more" href="research/#ppmstar">More on this →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="media paper"><img src="images/figures/ti44-mixing-grid.png" alt="Grid of 44Ti overproduction factors for different mixing and ingestion cases" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Supernova remnants</span>
+            <h3>Cassiopeia A and <sup>44</sup>Ti</h3>
+            <p>Shell mergers can produce a lot of <sup>44</sup>Ti before the explosion, and this can be checked against Cassiopeia A.</p>
+            <a class="more" href="research/#casa">More on this →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="media paper"><img src="images/figures/k40-radiogenic-heat.png" alt="Radiogenic heat production of a rocky planet over time for different 40K inventories" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Planets</span>
+            <h3><sup>40</sup>K and rocky planets</h3>
+            <p>The <sup>40</sup>K produced in shell mergers, a really important heat source for rocky planets, is really sensitive to mixing physics.</p>
+            <a class="more" href="research/#k40">More on this →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="media paper"><img src="images/figures/pnuc-dy156-flux.png" alt="Nuclear reaction flux chart around dysprosium-156" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Nucleosynthesis</span>
+            <h3>Mixing and nucleosynthesis</h3>
+            <p>In oxygen-carbon shell mergers, uncertainties in the 3D mixing change the production of the p nuclei as much as nuclear physics uncertainties do.</p>
+            <a class="more" href="research/#pnuclei">More on this →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="media paper"><img src="images/simulator-preview.png" alt="Screenshot of the interactive convective-reactive shell model" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Interactive</span>
+            <h3>Dynamic nucleosynthesis</h3>
+            <p>Explore this simple, interactive model of an O shell ingesting C to see how <sup>40</sup>K depends on mixing.</p>
+            <a class="more" href="simulator/">Open the simulator →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="kicker">News</div>
+      <h2>Recently</h2>
+      <ul class="news">
+        <li><time datetime="2026-11">Nov 2026</time><span>Talk at the UVic Excellence in Graduate Research Symposium, <em>Understanding the origin of key elements for habitable planets</em>.</span></li>
+        <li><time datetime="2026-10">Oct 2026</time><span>Seminar on Stellar Astrophysics at the Max Planck Institute for Astrophysics, Garching, <em>3D-informed oxygen-carbon shell merger nucleosynthesis</em>.</span></li>
+        <li><time datetime="2026-09">Sep 2026</time><span>Started a Mitacs Globalink research visit to the group of Almudena Arcones at TU Darmstadt.</span></li>
+        <li><time datetime="2026-09">Sep 2026</time><span>Talk at Geoastronomy in Tenerife, <em>Implications of 3D mixing for galactic <sup>40</sup>K</em>.</span></li>
+        <li><time datetime="2026-09">Sep 2026</time><span>Two collaboration papers submitted: <a href="https://arxiv.org/abs/2609.16826" target="_blank" rel="noopener">Sato et al.</a> on <sup>44</sup>Ti in Cassiopeia A and <a href="https://arxiv.org/abs/2609.28667" target="_blank" rel="noopener">Pathak et al.</a> on internal gravity wave mixing at shell boundaries.</span></li>
+        <li><time datetime="2026-07">Jul 2026</time><span><a href="https://doi.org/10.1140/epja/s10050-026-01903-7" target="_blank" rel="noopener">Battino et al.</a> on 3D mixing and the s process in AGB stars published in EPJ A.</span></li>
+        <li><time datetime="2026-06">Jun 2026</time><span>My paper on pre-supernova <sup>44</sup>Ti, <a href="https://doi.org/10.3847/1538-4357/ae6cee" target="_blank" rel="noopener"><em>Presupernova O–C shell mergers could produce more <sup>44</sup>Ti than the explosion</em></a>, published in ApJ.</span></li>
+        <li><time datetime="2026-06">Jun 2026</time><span>Awarded an Indo-Pacific Graduate Scholarship through the University of Victoria.</span></li>
+        <li><time datetime="2026-05">May 2026</time><span>Talk at Astrophysics with Radioactive Isotopes 2026, Traverse City.</span></li>
+        <li><time datetime="2026-01">Jan 2026</time><span>Two first-author papers published in ApJ, on the <a href="https://doi.org/10.3847/1538-4357/ae1efb" target="_blank" rel="noopener">p nuclei</a> and on the <a href="https://doi.org/10.3847/1538-4357/ae2ad1" target="_blank" rel="noopener">light odd-Z elements and <sup>40</sup>K</a>.</span></li>
+        <li><time datetime="2025-09">Sep 2025</time><span>Started my PhD at UVic after finishing my <a href="https://dspace.library.uvic.ca/items/417b3726-dbc2-4276-9fb6-04c9fb038f2a" target="_blank" rel="noopener">MSc thesis</a>, <em>Convective-reactive nucleosynthesis in oxygen-carbon shell mergers</em>.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker">Publications</div>
+      <h2>First-author papers</h2>
+      <ol class="pubs">
+        <li>
+          <a class="title" href="https://doi.org/10.3847/1538-4357/ae6cee" target="_blank" rel="noopener">Presupernova O–C Shell Mergers Could Produce More <sup>44</sup>Ti than the Explosion</a>
+          <span class="authors"><b>J. Issa</b> &amp; F. Herwig</span> · <span class="venue">ApJ 1004, 52 (2026)</span>
+        </li>
+        <li>
+          <a class="title" href="https://doi.org/10.3847/1538-4357/ae2ad1" target="_blank" rel="noopener">3D Macro Physics and Light Odd-Z Element Production in O–C Shell Mergers: Implications for <sup>40</sup>K Production and Radiogenic Heating Inventories of Rocky Exoplanets</a>
+          <span class="authors"><b>J. Issa</b>, F. Herwig, S. J. Mojzsis, M. Pignatari</span> · <span class="venue">ApJ 997, 314 (2026)</span>
+        </li>
+        <li>
+          <a class="title" href="https://doi.org/10.3847/1538-4357/ae1efb" target="_blank" rel="noopener">Impact of 3D Macrophysics and Nuclear Physics on the p-nuclei in O–C Shell Mergers</a>
+          <span class="authors"><b>J. Issa</b>, F. Herwig, P. A. Denissenkov, M. Pignatari</span> · <span class="venue">ApJ 997, 41 (2026)</span>
+        </li>
+      </ol>
+      <a class="btn" href="publications/">All publications</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Joshua Issa · Department of Physics and Astronomy, University of Victoria</span>
+    <ul>
+      <li><a href="mailto:joshuaissa@uvic.ca">joshuaissa@uvic.ca</a></li>
+      <li><a href="https://orcid.org/0000-0002-1283-6636" target="_blank" rel="noopener">ORCID 0000-0002-1283-6636</a></li>
+      <li><a href="https://www.linkedin.com/in/joshua-issa" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research · Joshua Issa</title>
+  <meta name="description" content="Research of Joshua Issa: 3D simulations of massive-star shell mergers with nuclear burning, Cassiopeia A and 44Ti, 40K and rocky planets, and convective-reactive nucleosynthesis.">
+  <link rel="icon" href="../images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../images/favicon-180.png">
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../">Joshua Issa</a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="../research/" aria-current="page">Research</a></li>
+        <li><a href="../publications/">Publications</a></li>
+        <li><a href="../talks/">Talks</a></li>
+        <li><a href="../simulator/">Simulator</a></li>
+        <li><a href="../cv/">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero page-hero">
+    <div class="wrap">
+      <h1>Research</h1>
+      <p>Massive stars make most of the elements between oxygen and iron. Modelling convection in the advanced burning stages is quite important to get the nucleosynthesis correct. Sometimes convective shells can merge and the mixing and burning timescales become equal. When this happens, the yields depend on the details of mixing which require 3D simulations to capture.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2>Constraining 3D simulations of massive-star shell mergers</h2>
+      <p class="lede wide">My MSc showed how yields depend on 3D mixing physics. My PhD tests how observations can constrain which 3D scenarios are real. Explore how dynamic nucleosynthesis can inform planets interactively <a href="../simulator/">here</a>.</p>
+
+      <article class="project" id="ppmstar">
+        <span class="tag">3D hydrodynamics</span>
+        <div class="text">
+          <h3>Nuclear burning in PPMstar</h3>
+          <p>In the final days before core collapse, the boundaries between convective burning shells set the structure that decides whether the shells merge and how the star explodes. With Praneet Pathak, we studied the bottom of the carbon shell in high-resolution 3D PPMstar simulations of a 25&nbsp;M<sub>☉</sub> star 11 days before collapse (<a href="https://arxiv.org/abs/2609.28667" target="_blank" rel="noopener">Pathak et al., submitted</a>).</p>
+          <p>Convection excites high-frequency internal gravity waves at the steep entropy step that 1D models place at this boundary. The waves mix entropy and species efficiently, with a diffusion coefficient of about 5&ndash;6&nbsp;&times;&nbsp;10<sup>9</sup>&nbsp;cm<sup>2</sup>&nbsp;s<sup>&minus;1</sup>, and erode the step by about 40% within hours. Flattening these gradients days before collapse favours oxygen-carbon shell mergers and changes the structure that sets explodability, and this physics is not in 1D stellar models. I also implemented nuclear burning in PPMstar, so that the simulations show how the hydrodynamics responds to the nuclear physics of carbon burning.</p>
+        </div>
+        <figure class="fig dark">
+          <video src="../media/o42-vorticity.mp4" poster="../media/o42-vorticity.jpg" controls muted playsinline preload="none" aria-label="Film of vorticity in a slice through the 3D simulation"></video>
+          <figcaption>Vorticity magnitude in a slice through the simulation.</figcaption>
+        </figure>
+      </article>
+
+      <article class="project" id="casa">
+        <span class="tag">Supernova remnants</span>
+        <div class="text">
+          <h3>Cassiopeia A and pre-supernova <sup>44</sup>Ti</h3>
+          <p><sup>44</sup>Ti is usually thought to be made in the explosion. I showed that an oxygen-carbon shell merger can make <sup>44</sup>Ti before the explosion, and that across different 3D mixing scenarios the pre-explosive yield spreads by 4.8&nbsp;dex. For some mixing conditions the pre-explosive production is larger than the explosive production of the models and matches the observations, while the <sup>56</sup>Ni yield is unchanged (<a href="https://doi.org/10.3847/1538-4357/ae6cee" target="_blank" rel="noopener">Issa &amp; Herwig 2026</a>).</p>
+          <p>Cassiopeia A is young and close enough that its <sup>44</sup>Ti and its odd-Z elements are measured in X-rays. With Toshiki Sato, Kai Matsunaga and collaborators I use it to test whether a shell merger took place in its progenitor (<a href="https://arxiv.org/abs/2609.16826" target="_blank" rel="noopener">Sato et al., submitted</a>).</p>
+        </div>
+        <figure class="fig paper">
+          <img src="../images/figures/ti44-mixing-grid.png" alt="Grid of 44Ti overproduction for different mixing profiles and entrainment rates" loading="lazy">
+          <figcaption><sup>44</sup>Ti yields relative to the pre-explosive yield of the 15&nbsp;M<sub>☉</sub>, Z&nbsp;=&nbsp;0.02 model, for each mixing profile (rows) and entrainment rate in M<sub>☉</sub>&nbsp;s<sup>−1</sup> (columns). From Issa &amp; Herwig (2026).</figcaption>
+        </figure>
+      </article>
+
+      <article class="project" id="k40">
+        <span class="tag">Galactic chemical evolution · Planets</span>
+        <div class="text">
+          <h3>The light odd-Z elements and <sup>40</sup>K</h3>
+          <p>Galactic chemical evolution models make too little P, Cl, K and Sc compared to what is measured in stars of the Milky Way, and shell mergers are the most promising way to make more. Across 24 mixing cases based on 3D simulations, I found that the pre-explosive [K/Fe] of a merger changes by more than two orders of magnitude and that the yield of radioactive <sup>40</sup>K changes by more than three (<a href="https://doi.org/10.3847/1538-4357/ae2ad1" target="_blank" rel="noopener">Issa et al. 2026</a>).</p>
+          <p><sup>40</sup>K has a half-life of 1.25&nbsp;Gyr and heats the interiors of rocky planets. A range this large in the initial <sup>40</sup>K of a planet means that the early geodynamics of its mantle can differ greatly from that of Earth. I work on this with Stephen Mojzsis as a member of the <a href="https://geoastronomy.org/" target="_blank" rel="noopener">Geoastronomy ERC Synergy project</a>.</p>
+        </div>
+        <figure class="fig paper">
+          <img src="../images/figures/k40-radiogenic-heat.png" alt="Radiogenic heat production of an Earth-like planet over time" loading="lazy">
+          <figcaption>Radiogenic heat production of an Earth-like planet over time with 3 times more or less <sup>40</sup>K than Earth, from <sup>40</sup>K alone and from <sup>40</sup>K, Th and U together. From Issa et al. (2026).</figcaption>
+        </figure>
+      </article>
+
+      <article class="project" id="pnuclei">
+        <span class="tag">p nuclei</span>
+        <div class="text">
+          <h3>3D mixing matters as much as nuclear physics</h3>
+          <p>The p nuclei are rare proton-rich isotopes that are produced in shell mergers by photodisintegrations. Convective mixing uncertainties non-monotonically impact their production and isotopic ratios. In 1D mixing and burning models of a 15&nbsp;M<sub>☉</sub> star with mixing taken from 3D simulations, the production changes by up to 1.8&nbsp;dex between mixing cases, comparable to the effect of nuclear physics uncertainties.</p>
+          <p>Varying all photodisintegration rates of the unstable neutron-deficient isotopes from Se to Po by a factor of 10 changed the production by 0.6 to 0.8&nbsp;dex. The reactions that matter most also depend on the mixing case (<a href="https://doi.org/10.3847/1538-4357/ae1efb" target="_blank" rel="noopener">Issa et al. 2026</a>).</p>
+        </div>
+        <figure class="fig paper">
+          <img src="../images/figures/pnuc-dy156-fluxes.png" alt="Reaction fluxes for dysprosium-156 and mass fractions of dysprosium isotopes across the oxygen shell" loading="lazy">
+          <figcaption>Reaction fluxes making and destroying <sup>156</sup>Dy and mass fractions of <sup>156&ndash;158</sup>Dy across the oxygen shell after 110&nbsp;s, for mixing length theory with an ingestion rate of 4&nbsp;&times;&nbsp;10<sup>&minus;3</sup>&nbsp;M<sub>☉</sub>&nbsp;s<sup>&minus;1</sup>. From Issa et al. (2026).</figcaption>
+        </figure>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Joshua Issa · Department of Physics and Astronomy, University of Victoria</span>
+    <ul>
+      <li><a href="mailto:joshuaissa@uvic.ca">joshuaissa@uvic.ca</a></li>
+      <li><a href="https://orcid.org/0000-0002-1283-6636" target="_blank" rel="noopener">ORCID 0000-0002-1283-6636</a></li>
+      <li><a href="https://www.linkedin.com/in/joshua-issa" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="../js/site.js"></script>
+</body>
+</html>

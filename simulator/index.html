@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shell Merger Simulator · Joshua Issa</title>
+  <meta name="description" content="An interactive toy model of convective-reactive nucleosynthesis: a convective oxygen shell that ingests carbon and makes 40K, solved live in the browser.">
+  <link rel="icon" href="../images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../images/favicon-180.png">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/simulator.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../">Joshua Issa</a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="../research/">Research</a></li>
+        <li><a href="../publications/">Publications</a></li>
+        <li><a href="../talks/">Talks</a></li>
+        <li><a href="../simulator/" aria-current="page">Simulator</a></li>
+        <li><a href="../cv/">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero page-hero">
+    <div class="wrap">
+      <h1><i>Dynamic</i> Nucleosynthesis</h1>
+      <p>This is a simplified, interactive model of how oxygen-carbon shell mergers contribute to the radioactive <sup>40</sup>K in planets. Carbon is ingested from an upper shell and it mixes into the much hotter oxygen shell, releasing neutrons, protons, and alphas on the way that produce <sup>40</sup>K. When the star explodes, it contributes to the galaxy, and then ends up condensed in planets and heats up their mantles. Watch as you change the mixing physics how planets respond.</p>
+    </div>
+  </section>
+
+  <section class="block sim-block">
+    <div class="wrap">
+      <div class="sim">
+        <div class="controls" role="group" aria-label="Model settings">
+          <label class="ctl">
+            <span class="ctl-name">Mixing speed compared to 1D</span>
+            <input id="mix" type="range" min="-1" max="2" step="0.05" value="0">
+            <output id="mixOut" for="mix">1×</output>
+          </label>
+          <label class="ctl">
+            <span class="ctl-name">Carbon ingestion rate</span>
+            <input id="mdot" type="range" min="-5.5" max="-1" step="0.05" value="-3.4">
+            <output id="mdotOut" for="mdot"></output>
+          </label>
+          <label class="ctl check">
+            <input id="downturn" type="checkbox" checked>
+            <span class="ctl-name">Slow the flow towards the boundary, as in 3D simulations</span>
+          </label>
+          <label class="ctl">
+            <span class="ctl-name">Fraction of massive stars with a shell merger</span>
+            <input id="gceF" type="range" min="0" max="1" step="0.01" value="0.5">
+            <output id="gceFOut" for="gceF">50%</output>
+          </label>
+          <label class="ctl">
+            <span class="ctl-name">Planet formation time, since the Galaxy formed</span>
+            <input id="planetT" type="range" min="-2" max="1.114" step="0.01" value="0.926">
+            <output id="planetTOut" for="planetT"></output>
+          </label>
+          <label class="ctl">
+            <span class="ctl-name">Planet uranium and thorium, relative to Earth</span>
+            <input id="planetUTh" type="range" min="-0.6" max="0.6" step="0.01" value="0">
+            <output id="planetUThOut" for="planetUTh"></output>
+          </label>
+          <div class="playback" role="group" aria-label="Playback">
+            <button id="play" class="play-btn" type="button" aria-label="Pause"></button>
+            <input id="tScrub" type="range" min="0" max="1000" step="5" value="0" aria-label="Time in the run">
+            <output id="tOut" for="tScrub">0 s</output>
+          </div>
+        </div>
+
+        <div class="panels even grid">
+          <figure class="panel">
+            <canvas id="profile" aria-label="Abundance profiles across the shell"></canvas>
+            <div class="legend">
+              <span><i style="--c:var(--c1)"></i><sup>12</sup>C</span>
+              <span><i style="--c:var(--c5)"></i><sup>39</sup>K</span>
+              <span><i style="--c:var(--c2)"></i><sup>40</sup>K</span>
+              <span><i class="bar" style="--c:var(--c3)"></i><sup>12</sup>C burning rate</span>
+              <span><i class="dash" style="--c:var(--c4)"></i>Temperature</span>
+            </div>
+          </figure>
+          <figure class="panel">
+            <canvas id="fluxPlot" aria-label="Reaction fluxes across the shell"></canvas>
+            <div class="legend" id="fluxLegend"></div>
+          </figure>
+          <figure class="panel">
+            <canvas id="gcePlot" aria-label="[K/Fe] against [Fe/H] for the Galaxy model and for stars"></canvas>
+            <div class="legend" id="gceLegend"></div>
+          </figure>
+          <figure class="panel">
+            <canvas id="r40Plot" aria-label="40K/K in the gas of the Galaxy model over time"></canvas>
+            <div class="legend" id="r40Legend"></div>
+          </figure>
+          <figure class="panel">
+            <canvas id="heatPlot" aria-label="Radiogenic heat production of the planet's mantle over time"></canvas>
+            <div class="legend" id="heatLegend"></div>
+          </figure>
+          <div class="panel readout-panel">
+            <dl class="readout">
+              <div class="wide"><dt>Merger selected</dt><dd id="gceCase" class="case-out">–</dd></div>
+              <div><dt><sup>40</sup>K / <sup>39</sup>K in the shell</dt><dd id="rRatio">–</dd></div>
+              <div><dt><sup>40</sup>K from the shell</dt><dd id="rK40">–</dd></div>
+              <div><dt>Gas [Fe/H] when the planet forms</dt><dd id="pFeH">–</dd></div>
+              <div><dt>Planet's initial <sup>40</sup>K</dt><dd id="pK40">–</dd></div>
+              <div><dt>Planet heating at formation</dt><dd id="pHeat0">–</dd></div>
+              <div><dt>Planet heating at Earth's age</dt><dd id="pHeatNow">–</dd></div>
+              <div class="wide"><dt>Dominant reactions for <sup>40</sup>K</dt><dd id="rReac" class="reac-out">–</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap explain">
+      <h2>What the model does</h2>
+      <p>Convective-reactive sites are environments where the time to convectively mix material and for a reaction to occur become equal, which can be described by Da&nbsp;=&nbsp;&tau;<sub>mix</sub>/&tau;<sub>burn</sub>. When Da&nbsp;&#8810;&nbsp;1, mixing is fast enough to homogenize the shell, and when Da&nbsp;&#8811;&nbsp;1, isotopes react before they can mix. However, in the oxygen-carbon shell merger burning occurs at similar timescales as mixing. As you change the mixing prescription, see how the reactions change and the <sup>40</sup>K produced as well. The ingested material releases protons, neutrons, and alphas that allow <sup>38</sup>Ar(p,&gamma;)<sup>39</sup>K(n,&gamma;)<sup>40</sup>K (<a href="https://doi.org/10.3847/1538-4357/ae2ad1" target="_blank" rel="noopener">Issa et al. 2026</a>). At the same time, <sup>40</sup>K is being destroyed at the hottest temperatures where <sup>40</sup>K(p,n)<sup>40</sup>Ca dominates. The ratio of <sup>40</sup>K/<sup>39</sup>K depends on the exact balance of mixing to burning. When the star explodes, its potassium enriches the gas of the Milky Way, and the [K/Fe] of the Galaxy depends on how many massive stars merge and how their mergers mix. <sup>40</sup>K decays with a half-life of 1.25&nbsp;Gyr, so the <sup>40</sup>K/K of the gas reflects the balance between recent enrichment and decay. When rocky planets form, they inherit the <sup>40</sup>K of the gas and as it decays it releases heat into the mantle.</p>
+      <p><a class="btn" href="../research/#k40">Read about the research behind it</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Joshua Issa · Department of Physics and Astronomy, University of Victoria</span>
+    <ul>
+      <li><a href="mailto:joshuaissa@uvic.ca">joshuaissa@uvic.ca</a></li>
+      <li><a href="https://orcid.org/0000-0002-1283-6636" target="_blank" rel="noopener">ORCID 0000-0002-1283-6636</a></li>
+      <li><a href="https://www.linkedin.com/in/joshua-issa" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="../js/crn-model.js"></script>
+<script src="../js/simulator.js"></script>
+<script src="../js/gce-data.js"></script>
+<script src="../js/galaxy.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+:root { --c1: #006ba4; --c2: #c85200; --c3: #ffbc79; --c4: #898989; --c5: #595959;
+  --r1: #ff800e; --r2: #006ba4; --r3: #c85200; --r4: #5f9ed1; --r5: #595959; --r6: #a2c8ec; --star: #ababab; }
+@media (prefers-color-scheme: dark) { :root { --c1: #5f9ed1; --c2: #ff800e; --c3: #7a4a1c; --c4: #8a8a8a; --c5: #cfcfcf;
+  --r1: #ff800e; --r2: #5f9ed1; --r3: #c85200; --r4: #a2c8ec; --r5: #ababab; --r6: #ffbc79; --star: #6f757c; } }
+
+.sim { display: grid; gap: 20px; }
+.controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px 28px; align-items: end; }
+.ctl { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 10px; align-items: center; font-size: .95rem; }
+.ctl .ctl-name { grid-column: 1 / -1; color: var(--ink-soft); }
+.ctl input[type=range] { width: 100%; accent-color: var(--accent); }
+.ctl output { font-variant-numeric: tabular-nums; text-align: left; white-space: nowrap; color: var(--ink); }
+.ctl.check { grid-template-columns: auto minmax(0, 1fr); }
+.ctl.check .ctl-name { grid-column: auto; }
+.ctl.check input { width: 18px; height: 18px; accent-color: var(--accent); }
+.lg-title { color: var(--ink-faint); }
+
+.panels { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 20px; }
+.panel { margin: 0; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 12px; min-width: 0; }
+.panel canvas { width: 100%; }
+#profile { aspect-ratio: 4 / 3; }
+#sweepPlot, #sharePlot { aspect-ratio: 4 / 3; }
+#fluxPlot { aspect-ratio: 4 / 3; }
+.panels.even { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 8px; font-size: .85rem; color: var(--ink-soft); }
+.legend i { display: inline-block; width: 18px; height: 0; border-top: 2.5px solid var(--c); vertical-align: middle; margin-right: 6px; }
+.legend i.bar { height: 10px; border: 0; background: var(--c); }
+.legend i.dash { border-top-style: dashed; }
+
+.readout { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); gap: 12px; margin: 0; }
+.readout div { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 10px 14px; }
+.readout dt { font-size: .82rem; color: var(--ink-faint); }
+.readout dd { margin: 2px 0 0; font-size: 1.2rem; font-variant-numeric: tabular-nums; font-family: var(--serif); }
+
+.explain p { color: var(--ink-soft); }
+
+@media (max-width: 760px) { .panels, .panels.even { grid-template-columns: minmax(0, 1fr); } }
+.legend .mk { display: inline-block; width: 10px; height: 10px; margin-right: 4px; vertical-align: middle; border: 1.8px solid var(--ink-soft); }
+.legend .mk.circ { border-radius: 50%; }
+.legend .mk.dot { border-radius: 50%; background: var(--ink); border-color: var(--ink); }
+.legend .mk.sq + span, .legend .mk.sq { margin-right: 6px; }
+.legend svg.lg-dash { vertical-align: middle; margin-right: 6px; color: var(--ink-soft); }
+.ctl select { width: 100%; padding: 6px 8px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel); color: var(--ink); font: inherit; }
+#gcePlot { aspect-ratio: 4 / 3; }
+#r40Plot, #heatPlot { aspect-ratio: 4 / 3; }
+.legend .mk.dotc { border-radius: 50%; }
+.case-out { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); }
+.panels.grid { row-gap: 20px; }
+.readout-panel { display: flex; }
+.readout-panel .readout { grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; width: 100%; }
+.readout-panel .readout div { padding: 8px 12px; }
+.readout-panel .readout .wide { grid-column: 1 / -1; }
+.readout-panel .readout dd { font-size: 1.05rem; }
+.playback { grid-column: 1 / -1; display: grid; grid-template-columns: auto minmax(0, 1fr) 4em; gap: 10px; align-items: center; }
+.play-btn { width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--accent); color: #fff; display: grid; place-items: center; cursor: pointer; }
+.play-btn:hover { background: color-mix(in srgb, var(--accent) 85%, #000); }
+.playback input[type=range] { width: 100%; accent-color: var(--accent); }
+.playback output { font-variant-numeric: tabular-nums; text-align: left; }
+.reac-out { font-family: var(--sans) !important; font-size: .95rem !important; line-height: 1.45; }
